@@ -1,13 +1,18 @@
 import os
-
+import pymongo
 from flask import Flask
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
+
+app.config["MONGO_DBNAME"] = 'cookbook_manager'
+app.config["MONGO_URI"] = ''
 
 
 @app.route('/')
 def hello():
-    return 'Hello World ...again'
+    return 'Hello World ...two'
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', '127.0.0.1'),
